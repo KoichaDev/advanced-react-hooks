@@ -1,8 +1,36 @@
 import * as React from "react"
 import styled from "styled-components"
+import PurchaseButton from "../components/Buttons/PurchaseButton"
+import CourseCard from "../components/Cards/CourseCard"
+
+const IndexPage = () => (
+  <Wrapper>
+    <HeroWrapper>
+      <CourseCard />
+      <TextWrapper>
+        <Logo src="/images/logos/react-logo.svg" alt="icon" />
+        <Title>Build a web app with React Hooks</Title>
+        <Caption>20 sections - 3 hours of videos</Caption>
+        <Description>
+          Learn how we build the new DesignCode site with React Hooks
+        </Description>
+        <AuthorWrapper>
+          <AuthorImage src="/images/avatars/Meng.png" alt="author image" />
+          <Caption>Taught by Meng To</Caption>
+        </AuthorWrapper>
+        <PurchaseButton />
+        <SmallText>
+          Purchase includes access to 30 courses. Over 80 hours of content,
+          including 12 hours for SwiftUI, iOS 13 and iOS 14
+        </SmallText>
+      </TextWrapper>
+    </HeroWrapper>
+  </Wrapper>
+)
+
+export default IndexPage
 
 const Wrapper = styled.div`
-  height: 1247px;
   background: linear-gradient(200.44deg, #4316db 13.57%, #9076e7 98.38%);
 `
 
@@ -10,13 +38,34 @@ const TextWrapper = styled.div`
   position: relative;
   display: grid;
   gap: 1.25em;
-  padding-top: 13.75em;
+
+  @media (max-width: 48.75em) {
+    justify-items: center;
+    text-align: center; 
+  }
 `
 
 const AuthorWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 1em;
+`
+
+const HeroWrapper = styled.div`
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 360px auto;
+  gap: 3.75em;
+  margin: 0 auto;
+  padding: 220px 20px 0px;
+  max-width: 1234px;
+
+  @media (max-width: 48.75em) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  
 `
 
 const Logo = styled.img`
@@ -51,26 +100,15 @@ const Description = styled.p`
   color: #fff;
 `
 
-const AuthorImage =styled.img`
+const AuthorImage = styled.img`
   width: 32px;
   height: 32px;
 `
 
-const IndexPage = () => (
-  <Wrapper>
-    <TextWrapper>
-      <Logo src="/images/logos/react-logo.svg" alt="icon" />
-      <Title>Build a web app with React Hooks</Title>
-      <Caption>20 sections - 3 hours of videos</Caption>
-      <Description>
-        Learn how we build the new DesignCode site with React Hooks
-      </Description>
-      <AuthorWrapper>
-      <AuthorImage src="/images/avatars/Meng.png" alt="author image"/>
-      <Caption>Taught by Meng To</Caption>
-      </AuthorWrapper>
-    </TextWrapper>
-  </Wrapper>
-)
-
-export default IndexPage
+const SmallText = styled.p`
+  max-width: 280px;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 130%;
+  color: rgba(255, 255, 255, 0.7);
+`
