@@ -60,6 +60,10 @@ const HeroWrapper = styled.div`
   padding: 220px 20px 0px;
   max-width: 1234px;
 
+  .course-card {
+    margin-top: 2.4375em;
+  }
+
   @media (max-width: 48.75em) {
     grid-template-columns: 1fr;
     justify-items: center;
